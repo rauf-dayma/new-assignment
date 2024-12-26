@@ -1,0 +1,78 @@
+/* Main Video Component */
+.video {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap; 
+    color: white;
+    justify-content: center;
+    background-color: black;
+}
+
+.videoAboutContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Video Post Section */
+.videoPostSection {
+    width: 100%;
+    max-width: 950px;
+}
+
+.video {
+    width: 100%;
+}
+
+.videoClass {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.videoTitle {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.CreateDatte {
+    font-size: 14px;
+    color: gray;
+}
+
+
+
+/* ------------------ Responsive Styles ------------------ */
+
+@media only screen and (max-width: 768px) {
+    /* Stack Video Post Section and Suggestions vertically */
+    .video {
+        flex-direction: column;
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+    .videoTitle {
+        font-size: 18px;
+    }
+
+    .CreateDatte {
+        font-size: 12px;
+    }
+}
+   
+/* Responsive styling for mobile */
+
+@media only screen and (max-width: 480px) {
+    .video {
+        flex-direction: column;
+        padding: 10px;
+        justify-content: space-between;
+    }
+
+  
+    .videoClass {
+        border-radius: 0;
+    }
+}

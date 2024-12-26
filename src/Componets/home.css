@@ -1,0 +1,91 @@
+/* Main container */
+.home-mainPage {
+    display: flex;
+    /* flex-wrap: wrap;  */
+    gap: 20px; /* Spacing between video thumbnails */
+    padding: 20px; /* Padding around the content */
+  }
+  .VideoLink{
+    width: 100%;
+  }
+  
+  /* Video thumbnail container */
+  .videoThumbnail {
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Center-align thumbnail and title */
+    width: 240px; 
+    gap: 10px; 
+    border-radius: 8px; 
+    overflow: hidden; /* Prevent overflow on rounded corners */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .videoThumbnail:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  /* Thumbnail image */
+  .thubnailPic {
+    width: 100%; /* Fill the container width */
+    height: 130px; /* Fixed height for uniformity */
+    object-fit: cover; /* Maintain aspect ratio, fill box */
+  }
+  
+  /* Video title */
+  .videoTitle {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; /* Darker text for better readability */
+    overflow: hidden; /* Prevent text overflow */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    white-space: nowrap; /* Prevent wrapping */
+    width: 100%;
+  }
+  
+  /* Upload button container */
+  .videoUploadBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10; /* Ensure it's above other elements */
+  }
+  
+  /* Upload button */
+  .uploadBtn {
+    display: inline-block;
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px; /* Fully rounded button */
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  }
+  
+  .uploadBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .videoThumbnail {
+      width: 100%; /* Thumbnails take full width on small screens */
+      gap: 8px; /* Adjust spacing */
+    }
+  
+    .thubnailPic {
+      height: 180px; /* Adjust height for smaller screens */
+    }
+  
+    .uploadBtn {
+      padding: 10px 15px; /* Smaller padding for the button */
+      font-size: 14px; /* Adjust font size */
+    }
+  }
+  
