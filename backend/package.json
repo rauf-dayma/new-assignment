@@ -4,7 +4,7 @@
   "type": "module",
  "scripts": {
   "dev": "nodemon api/script.js",
-  "start": "node api/script.js"
+  "start": "nodemon api/script.js"
 },
   "dependencies": {
     "cors": "^2.8.5",

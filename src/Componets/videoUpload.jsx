@@ -68,7 +68,10 @@ const VideoUpload = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:2100/api/video/upload", {
+
+      const API_BASE_URL = "https://your-app-backend.vercel.app/api";
+
+      const response = await fetch(`${API_BASE_URL}/api/video/upload`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

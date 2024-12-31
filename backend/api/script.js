@@ -1,13 +1,16 @@
-// File: api/script.js
-
 import mongoose from "mongoose";
 import cors from "cors";
 import express from "express";
 import { uploadVideoRoute } from "../routes/video.js";
 
 const app = express();
+
+// Use CORS to allow your frontend (both local and deployed)
+app.use(cors({
+  origin: ["http://localhost:5173", "https://your-app-frontend.vercel.app"], // Add your deployed frontend URL
+}));
+
 app.use(express.json());
-app.use(cors());
 
 const dbName = "neoflekeTaskDb";
 const dbUri = "mongodb+srv://raufdayma123:raufdayma-123@cluster0.0jbpr.mongodb.net/neoflekeTaskDb?retryWrites=true&w=majority";

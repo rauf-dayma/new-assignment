@@ -11,7 +11,9 @@ const Video = () => {
   // Function to fetch video data
   const fetchVideo = async () => {
     try {
-      const res = await fetch(`http://localhost:2100/api/video/${id}`);
+      const API_BASE_URL = "https://your-app-backend.vercel.app/api";
+
+      const res = await fetch(`${API_BASE_URL}/api/video/${id}`);
       if (!res.ok) {
         const errorMessage = await res.text();
         throw new Error(
