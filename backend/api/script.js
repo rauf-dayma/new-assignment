@@ -7,7 +7,7 @@ const app = express();
 
 // Use CORS to allow your frontend (both local and deployed)
 app.use(cors({
-  origin: ["http://localhost:5173", "https://your-app-frontend.vercel.app"], // Add your deployed frontend URL
+  origin: ["http://localhost:5173", "https://new-assignment-delta.vercel.app/"], // Add your deployed frontend URL
 }));
 
 app.use(express.json());
