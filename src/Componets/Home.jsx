@@ -10,19 +10,17 @@ const Home = () => {
     getAlllVideos();
   }, []);
 
-  const API_BASE_URL = "https://new-assignment-delta.vercel.app";  // Backend URL for Vercel
-
   async function getAlllVideos() {
     const token = localStorage.getItem("token");
-  
+
     try {
-      const response = await fetch(`${API_BASE_URL}/api/allVideos`, {
+      const response = await fetch("http://localhost:2100/api/allVideos", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         console.log("videos:", data.videos);
@@ -35,7 +33,6 @@ const Home = () => {
       console.error("Failed to fetch videos:", error);
     }
   }
-  
 
   return (
     <div className="home-mainPage">

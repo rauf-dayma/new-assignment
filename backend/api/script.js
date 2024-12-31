@@ -1,31 +1,31 @@
-import mongoose from "mongoose";
-import cors from "cors";
-import express from "express";
-import { uploadVideoRoute } from "../routes/video.js";
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"; // Import the CORS package
+import { uploadVideoRoute } from "./routes/video.js";
+
 
 const app = express();
-
-// Use CORS to allow your frontend (both local and deployed)
-app.use(cors({
-  origin: ["http://localhost:5173", "https://new-assignment-delta.vercel.app/"], // Add your deployed frontend URL
-}));
-
 app.use(express.json());
+app.use(cors());
 
 const dbName = "neoflekeTaskDb";
 const dbUri = "mongodb+srv://raufdayma123:raufdayma-123@cluster0.0jbpr.mongodb.net/neoflekeTaskDb?retryWrites=true&w=majority";
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+
 const db = mongoose.connection;
 db.on("open", () => {
-  console.log("DB connection successful");
+  console.log("db Connection successful");
 });
 
-db.on("error", (err) => {
-  console.error("Connection error:", err);
+db.on("error", () => {
+  console.log("Connection is not successful");
 });
 
-// Initialize your routes
-uploadVideoRoute(app);
+app.listen(2100, () => {
+  console.log("Server is running on port 2100");
+});
 
-export default app; // Vercel will use this as a serverless function handler
+
+
+uploadVideoRoute(app)
