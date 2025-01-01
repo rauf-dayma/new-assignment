@@ -1,4 +1,4 @@
-import Video from "../../models/video.js"
+import Video from "../models/video.js";
 
 export async function uploadVideo(req, res){
     try{
