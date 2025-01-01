@@ -1,5 +1,5 @@
 
-import {  getAllVideos, getVideoById, uploadVideo} from "../api/controllers/video.js";
+import {  getAllVideos, getVideoById, uploadVideo} from "../controllers/video.js";
 
 export function uploadVideoRoute(app) {
     app.post("/api/video/upload", uploadVideo);
