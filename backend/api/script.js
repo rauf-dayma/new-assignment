@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import { uploadVideoRoute } from "./routes/video.js";
+import { uploadVideoRoute } from "../../routes/video.js";  // Adjust import path as necessary
 
 const app = express();
 
@@ -10,10 +10,10 @@ app.options('*', cors());
 
 // CORS configuration
 app.use(cors({
-  origin: ["http://localhost:5173", "https://your-frontend-url.vercel.app"], // Make sure to replace with your actual frontend URL
+  origin: ["http://localhost:5173", "https://new-assignment-delta.vercel.app/"], // Make sure to replace with your actual frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  Credential : true
+  Credential: true
 }));
 
 app.use((req, res, next) => {
@@ -22,30 +22,23 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Express setup
 app.use(express.json());
 
 // MongoDB connection
-const dbUri = process.env.MONGO_URI || "mongodb+srv://raufdayma123:raufdayma-123@cluster0.0jbpr.mongodb.net/neoflekeTaskDb?retryWrites=true&w=majority";
+const dbUri = process.env.MONGO_URI || "your-mongo-db-uri-here";
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
-db.on("open", () => console.log("db Connection successful"));
-db.on("error", () => console.log("Connection is not successful"));
+db.on("open", () => console.log("DB Connection successful"));
+db.on("error", () => console.log("DB connection failed"));
 
 // Your routes
 uploadVideoRoute(app);
-
-app.listen(2100, () => {
-  console.log("Server is running on port 2100");
-});
-
 
 app.get('/test', (req, res) => {
   res.json({ message: "CORS is working!" });
 });
 
-
-// Export app for Vercel
+// Export the Express app for Vercel's serverless function
 export default app;
