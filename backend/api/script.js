@@ -1,28 +1,18 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import { uploadVideoRoute } from "../../routes/video.js";  // Adjust import path as necessary
+import { uploadVideoRoute } from "../../routes/video.js";  // Adjust import path if necessary
+import Video from "../../models/video.js";  // Assuming you have a model for videos
 
 const app = express();
 
-// CORS middleware for preflight requests
-app.options('*', cors());
-
-// CORS configuration
+// CORS middleware and setup
 app.use(cors({
-  origin: ["http://localhost:5173", "https://new-assignment-delta.vercel.app/"], // Make sure to replace with your actual frontend URL
+  origin: ["http://localhost:5173", "https://your-frontend-url.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  Credential: true
 }));
 
-app.use((req, res, next) => {
-  console.log('Request headers:', req.headers);
-  res.setHeader('Access-Control-Allow-Origin', '*');  // Temporary to allow any origin
-  next();
-});
-
-// Express setup
 app.use(express.json());
 
 // MongoDB connection
@@ -33,12 +23,15 @@ const db = mongoose.connection;
 db.on("open", () => console.log("DB Connection successful"));
 db.on("error", () => console.log("DB connection failed"));
 
-// Your routes
-uploadVideoRoute(app);
-
-app.get('/test', (req, res) => {
-  res.json({ message: "CORS is working!" });
+// Video routes
+app.get('/api/allVideos', async (req, res) => {
+  try {
+    const videos = await Video.find();  // Fetch videos from your MongoDB
+    res.json(videos);  // Send the videos as JSON
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching videos", error });
+  }
 });
 
-// Export the Express app for Vercel's serverless function
+// Export the app for Vercel
 export default app;
