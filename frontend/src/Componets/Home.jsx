@@ -10,7 +10,7 @@ const Home = () => {
     getAlllVideos();
   }, []);
 
-  const API_BASE_URL = "https://new-assignment-delta.vercel.app";  // Backend URL for Vercel
+  const API_BASE_URL = "https://new-assignment-ovmo.vercel.app";  // Backend URL for Vercel
 
   async function getAlllVideos() {
     const token = localStorage.getItem("token");

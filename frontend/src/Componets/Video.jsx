@@ -11,7 +11,7 @@ const Video = () => {
   // Function to fetch video data
   const fetchVideo = async () => {
     try {
-      const API_BASE_URL = "https://new-assignment-delta.vercel.app";
+      const API_BASE_URL = "https://new-assignment-ovmo.vercel.app";
 
       const res = await fetch(`${API_BASE_URL}/api/video/${id}`);
       if (!res.ok) {

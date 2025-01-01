@@ -69,7 +69,7 @@ const VideoUpload = () => {
 
     try {
 
-      const API_BASE_URL = "https://new-assignment-delta.vercel.app";
+      const API_BASE_URL = "https://new-assignment-ovmo.vercel.app/";
 
       const response = await fetch(`${API_BASE_URL}/api/video/upload`, {
         method: "POST",
