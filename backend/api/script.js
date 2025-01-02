@@ -9,6 +9,15 @@ app.use(cors())
 
 app.use(express.json());
 
+// Serve static files
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Fallback to index.html for SPA
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
 const dbUri = "mongodb+srv://raufdayma123:raufdayma-123@cluster0.0jbpr.mongodb.net/neoflekeTaskDb?retryWrites=true&w=majority";
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
