@@ -16,6 +16,7 @@ const Home = () => {
     const token = localStorage.getItem("token");
   
     try {
+      console.log(API_BASE_URL)
       const response = await fetch(`${API_BASE_URL}/api/allVideos`, {
         method: "GET",
         headers: {
