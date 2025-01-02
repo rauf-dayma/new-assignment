@@ -69,7 +69,7 @@ const VideoUpload = () => {
 
     try {
 
-      const API_BASE_URL = "https://new-assignment-3.onrender.com";
+      const API_BASE_URL = "https://new-assignment-q0mf.onrender.com";
 
       const response = await fetch(`${API_BASE_URL}/api/video/upload`, {
         method: "POST",
