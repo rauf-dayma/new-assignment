@@ -16,9 +16,6 @@ const db = mongoose.connection;
 db.on("open", () => console.log("db Connection successful"));
 db.on("error", () => console.log("Connection is not successful"));
 
-app.listen(2100, () => {
-  console.log("Server is running on port 2100");
-});
 
 uploadVideoRoute(app);
 

@@ -2,12 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "module",
- "scripts": {
-  "dev": "nodemon api/script.js",
-  "start": "nodemon api/script.js"
-},
+  "scripts": {
+    "dev": "nodemon api/script.js",
+    "start": "node api/script.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.9.2",
     "nodemon": "^3.1.9"
